@@ -9,8 +9,8 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $data = Article::all();
-        return view ('articles.index',['articles' => $data]);
+        $data = Article::latest()->paginate(5);
+        return view('articles.index', ['articles' => $data]);
     }
 
     public function detail($id)

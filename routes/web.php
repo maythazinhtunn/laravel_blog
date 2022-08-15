@@ -13,16 +13,19 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
-Route::get('/',function(){
-    return redirect() -> route ('articles.index');
+Route::get('/', function () {
+    return redirect()->route('articles.index');
 });
-Route::get('/articles', [ArticleController::class, 'index']) -> name ('articles.index');
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/detail', function () {
     return 'Article Detail';
-    })-> name('articles.detail');
+})->name('articles.detail');
 
-Route::get('/articles/detail/{id}',[ArticleController::class,'detail']);
+Route::get('/articles/detail/{id}', [ArticleController::class, 'detail']);
 
-Route::get('/articles/more',function(){
+Route::get('/articles/more', function () {
     return redirect()->route('articles.detail');
 });
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
