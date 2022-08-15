@@ -21,7 +21,7 @@ Route::get('/articles/detail', function () {
     return 'Article Detail';
 })->name('articles.detail');
 
-Route::get('/articles/detail/{id}', [ArticleController::class, 'detail']);
+Route::get('/articles/detail/{id}', [ArticleController::class, 'detail'])->name('articles.detail');
 
 Route::get('/articles/more', function () {
     return redirect()->route('articles.detail');
