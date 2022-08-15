@@ -1,8 +1,13 @@
 @extends("layouts.app")
 @section("content")
 <div class="container">
-    @foreach ($articles as $article)
+    @if(session('info'))
+    <div class="alert alert-info">
+        {{ session('info') }}
+    </div>
+    @endif
     {{$articles ->links()}}
+    @foreach ($articles as $article)
     <div class="card mb-2">
         <div class="card-body">
             <h5 class="card-title">{{$article->title}}</h5>
