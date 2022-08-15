@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ArticleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,20 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/',function(){
+    return redirect() -> route ('articles.index');
 });
-Route::get('/articles', function () {
-    return 'Article List';
-    });
+Route::get('/articles', [ArticleController::class, 'index']) -> name ('articles.index');
 Route::get('/articles/detail', function () {
     return 'Article Detail';
-    })-> name('article.detail');
+    })-> name('articles.detail');
 
-Route::get('/articles/detail/{id}',function($id){
-    return "Article_details $id";
-});
+Route::get('/articles/detail/{id}',[ArticleController::class,'detail']);
 
 Route::get('/articles/more',function(){
-    return redirect()->route('article.detail');
+    return redirect()->route('articles.detail');
 });
