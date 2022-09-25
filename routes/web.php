@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +15,7 @@ use App\Http\Controllers\CommentController;
 |
 */
 #Articles
-Route::get('/', function () {
-    return redirect()->route('articles.index');
-});
+Route::get('/', [ArticleController::class, 'index']);
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/detail', function () {
     return 'Article Detail';
